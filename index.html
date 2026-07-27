@@ -38,7 +38,7 @@ a,p {
 
 <script>
 function myFunction() {
-const SENHA_CORRETA = "1234";
+const keyPass = "1234";
 const texto = document.getElementById("update_text");
 const acesso = document.getElementById("acess_links")
 let senhaDigitada;
@@ -54,14 +54,14 @@ do {
 
   }
 
-  if (senhaDigitada !== SENHA_CORRETA) {
+  if (senhaDigitada !== keyPass) {
     alert("Senha incorreta! Tente novamente.");
   }
 
-} while (senhaDigitada !== SENHA_CORRETA);
+} while (senhaDigitada !== keyPass);
 
 // Só executa quando a senha estiver correta
-if (senhaDigitada === SENHA_CORRETA) {
+if (senhaDigitada === keyPass) {
 	acesso.style.display = "block";
   	alert("Acesso permitido! Bem-vindo.");
     
