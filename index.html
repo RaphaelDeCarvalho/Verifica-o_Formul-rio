@@ -34,38 +34,24 @@ a,p {
   <a id="acess_links" href="https://docs.google.com/forms/d/e/1FAIpQLSeCy8MORFxJS9MGpuIjNEoCmVJz8c_JoGaxtW73F0_GouwGrg/viewform?usp=header" style="border-bottom: 200px;">PERÍODO TARDE</a><br>
 <a id="acess_links" href="https://docs.google.com/forms/d/e/1FAIpQLScWmiZMQQWSgY3U9owpQmoQt2ZwcPOq9VxA3Ot0K9ZlkJVAEg/viewform?usp=header" style="border-bottom: 200px;">PERÍODO NOTURNO</a><br>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
-function myFunction() {
-const SENHA_CORRETA = "1234";
-const texto = document.getElementById("update_text");
-const acesso = document.getElementById("acess_links")
-let senhaDigitada;
-
-do {
-  senhaDigitada = prompt("Digite a sua senha:");
-
-  // Se o usuário clicar em "Cancelar" no prompt
-  if (senhaDigitada === null) {
-    texto.style.display = "block";
-    alert("Operação cancelada.");
-    break;
-
-  }
-
-  if (senhaDigitada !== SENHA_CORRETA) {
-    alert("Senha incorreta! Tente novamente.");
-  }
-
-} while (senhaDigitada !== SENHA_CORRETA);
-
-// Só executa quando a senha estiver correta
-if (senhaDigitada === SENHA_CORRETA) {
-	acesso.style.display = "block";
-  	alert("Acesso permitido! Bem-vindo.");
-    
-}
-}
+Swal.fire({
+    title: 'Digite a senha',
+    input: 'password',
+    inputPlaceholder: 'Senha',
+    inputAttributes: {
+        autocapitalize: 'off',
+        autocorrect: 'off'
+    },
+    showCancelButton: true,
+    confirmButtonText: 'Entrar'
+}).then((result) => {
+    if (result.isConfirmed) {
+        console.log(result.value);
+    }
+});
 </script>
-
 </body>
 </html>
