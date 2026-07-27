@@ -37,21 +37,36 @@ a,p {
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
-Swal.fire({
-    title: 'Digite a senha',
-    input: 'password',
-    inputPlaceholder: 'Senha',
-    inputAttributes: {
-        autocapitalize: 'off',
-        autocorrect: 'off'
-    },
-    showCancelButton: true,
-    confirmButtonText: 'Entrar'
-}).then((result) => {
-    if (result.isConfirmed) {
-        console.log(result.value);
-    }
-});
+function myFunction() {
+const SENHA_CORRETA = "1234";
+const texto = document.getElementById("update_text");
+const acesso = document.getElementById("acess_links")
+let senhaDigitada;
+
+do {
+  senhaDigitada = prompt("Digite a sua senha:");
+
+  // Se o usuário clicar em "Cancelar" no prompt
+  if (senhaDigitada === null) {
+    texto.style.display = "block";
+    alert("Operação cancelada.");
+    break;
+
+  }
+
+  if (senhaDigitada !== SENHA_CORRETA) {
+    alert("Senha incorreta! Tente novamente.");
+  }
+
+} while (senhaDigitada !== SENHA_CORRETA);
+
+// Só executa quando a senha estiver correta
+if (senhaDigitada === SENHA_CORRETA) {
+	acesso.style.display = "block";
+  	alert("Acesso permitido! Bem-vindo.");
+    
+}
+}
 </script>
 </body>
 </html>
